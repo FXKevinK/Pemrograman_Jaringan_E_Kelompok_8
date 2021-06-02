@@ -7,13 +7,15 @@ from queue import  Queue
 
 class Chat:
 	def __init__(self):
-		self.sessions={}
 		self.users = {}
 		self.users['messi']={ 'nama': 'Lionel Messi', 'negara': 'Argentina', 'password': 'surabaya', 'incoming' : {}, 'outgoing': {}}
 		self.users['henderson']={ 'nama': 'Jordan Henderson', 'negara': 'Inggris', 'password': 'surabaya', 'incoming': {}, 'outgoing': {}}
 		self.users['lineker']={ 'nama': 'Gary Lineker', 'negara': 'Inggris', 'password': 'surabaya','incoming': {}, 'outgoing':{}}
+
 	def proses(self,data):
+		print(f" Data for proses is {data}")
 		j=data.split(" ")
+		print(f"{j[0]}")
 		try:
 			command=j[0].strip()
 			if (command=='auth'):
@@ -21,6 +23,7 @@ class Chat:
 				password=j[2].strip()
 				logging.warning("AUTH: auth {} {}" . format(username,password))
 				return self.autentikasi_user(username,password)
+
 			elif (command=='send'):
 				sessionid = j[1].strip()
 				usernameto = j[2].strip()
@@ -30,17 +33,20 @@ class Chat:
 				usernamefrom = self.sessions[sessionid]['username']
 				logging.warning("SEND: session {} send message from {} to {}" . format(sessionid, usernamefrom,usernameto))
 				return self.send_message(sessionid,usernamefrom,usernameto,message)
+
 			elif (command=='inbox'):
 				sessionid = j[1].strip()
 				username = self.sessions[sessionid]['username']
 				logging.warning("INBOX: {}" . format(sessionid))
 				return self.get_inbox(username)
+
 			else:
 				return {'status': 'ERROR', 'message': '**Protocol Tidak Benar'}
 		except KeyError:
 			return { 'status': 'ERROR', 'message' : 'Informasi tidak ditemukan'}
 		except IndexError:
 			return {'status': 'ERROR', 'message': '--Protocol Tidak Benar'}
+
 	def autentikasi_user(self,username,password):
 		if (username not in self.users):
 			return { 'status': 'ERROR', 'message': 'User Tidak Ada' }
@@ -49,10 +55,12 @@ class Chat:
 		tokenid = str(uuid.uuid4()) 
 		self.sessions[tokenid]={ 'username': username, 'userdetail':self.users[username]}
 		return { 'status': 'OK', 'tokenid': tokenid }
+
 	def get_user(self,username):
 		if (username not in self.users):
 			return False
 		return self.users[username]
+
 	def send_message(self,sessionid,username_from,username_dest,message):
 		if (sessionid not in self.sessions):
 			return {'status': 'ERROR', 'message': 'Session Tidak Ditemukan'}
