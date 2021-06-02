@@ -61,8 +61,8 @@ class Server:
 			except Exception as e:
 				print(repr(e))
 				break
-	def file_transport(self, connection, room_id, user_id, file_name, size_file):
 
+	def file_transport(self, connection, room_id, user_id, file_name, size_file):
 		for client in self.rooms[room_id]:
 			if client != connection:
 				try:
