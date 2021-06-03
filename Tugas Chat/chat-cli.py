@@ -1,3 +1,4 @@
+import base64
 import socket
 import os
 import json
@@ -28,6 +29,24 @@ class ChatClient:
                 return self.sendmessage(usernameto,message)
             elif (command=='inbox'):
                 return self.inbox()
+            elif (command == 'send_group'):
+                groupto = j[1].strip()
+                message = ""
+                for w in j[2:]:
+                    message = "{} {}".format(message, w)
+                return self.sendgroupmessage(groupto, message)
+            elif (command == 'send_file'):
+                usernameto = j[1].strip()
+                filename = j[2].strip()
+                return self.sendfile(usernameto, filename)
+            elif (command == 'file_inbox'):
+                return self.inboxfile()
+            elif (command == 'group_inbox'):
+                return self.group_inbox()
+            elif (command == 'download'):
+                username = j[1].strip()
+                filename = j[2].strip()
+                return self.downloadfile(username, filename)
             else:
                 return "*Maaf, command tidak benar"
         except IndexError:
@@ -65,6 +84,35 @@ class ChatClient:
             return "message sent to {}" . format(usernameto)
         else:
             return "Error, {}" . format(result['message'])
+
+    def sendgroupmessage(self,groupto="xxx",message="xxx"):
+        if(self.tokenid==""):
+            return "Error, not authorized"
+        string="group_send {} {} {} \r\n" . format(self.tokenid,groupto,message)
+        print(string)
+        print(string)
+        result = self.sendstring(string)
+        if result['status'] == 'OK':
+            return "message sent to {}".format(groupto)
+        else:
+            return "Error, {}".format(result['message'])
+
+    def sendfile(self, usernameto, filename):
+        if (self.tokenid == ""):
+            return "Error, not authorized"
+        try:
+            file = open(filename, "rb")
+        except FileNotFoundError:
+            return "Error, {} file not found".format(filename)
+        buffer = file.read()
+        buffer_string = base64.b64encode(buffer).decode('utf-8')
+        message = "send_file {} {} {} {} \r\n".format(self.tokenid, usernameto, filename, buffer_string)
+        result = self.sendstring(message)
+        if result['status'] == 'OK':
+            return "file {} sent to {}".format(filename, usernameto)
+        else:
+            return "Error, {}".format(result['message'])
+
     def inbox(self):
         if (self.tokenid==""):
             return "Error, not authorized"
@@ -75,8 +123,38 @@ class ChatClient:
         else:
             return "Error, {}" . format(result['message'])
 
+    def group_inbox(self,groupid="xxx"):
+        if (self.tokenid==""):
+            return "Error, not authorized"
+        string="group_inbox {} {}\r\n" . format(self.tokenid,groupid)
+        result = self.sendstring(string)
+        if result['status']=='OK':
+            return "{}" . format(json.dumps(result['messages']))
+        else:
+            return "Error, {}" . format(result['message'])
 
+    def inboxfile(self):
+        if (self.tokenid == ""):
+            return "Error, not authorized"
+        string = "file_check {} \r\n".format(self.tokenid)
+        result = self.sendstring(string)
+        if result['status'] == 'OK':
+            return "{}".format(json.dumps(result['messages']))
+        else:
+            return "Error, {}".format(result['message'])
 
+    def downloadfile(self, username, filename):
+        if (self.tokenid == ""):
+            return "Error, not authorized"
+        string = "file_download {} {} {} \r\n".format(self.tokenid, username, filename)
+        result = self.sendstring(string)
+        if result['status'] == 'OK':
+            output_file = open(result['filename'], 'wb')
+            output_file.write(base64.b64decode(result['data']))
+            output_file.close()
+            return "{}".format(json.dumps(result['messages']))
+        else:
+            return "Error, {}".format(result['message'])
 if __name__=="__main__":
     cc = ChatClient()
     while True:
