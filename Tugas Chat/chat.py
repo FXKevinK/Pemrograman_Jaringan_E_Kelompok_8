@@ -70,14 +70,13 @@ class Chat:
             elif (command == 'file_send'):
                 sessionid = j[1].strip()
                 usernameto = j[2].strip()
-                filepath = j[3].strip()
+                filename = j[3].strip()
+                file_data = ''
                 for i in j[4:-1]:
-                    file_data = "{}{}".format()
+                    file_data = "{}{}".format(file_data,i)
                 usernamefrom = self.sessions[sessionid]['username']
-                logging.warning(
-                    "SEND: session {} send file {} from {} to {}".format(sessionid, filepath, usernamefrom, usernameto,
-                                                                         file_data))
-                return self.send_file(sessionid, usernamefrom, usernameto, filepath)
+                logging.warning("SEND: session {} send file {} from {} to {} with data\n {}".format(sessionid, filename, usernamefrom, usernameto,file_data))
+                return self.send_file(sessionid, usernamefrom, usernameto, filename, file_data)
 
             elif (command == 'inbox'):
                 sessionid = j[1].strip()
@@ -192,11 +191,11 @@ class Chat:
         if sessionid not in self.sessions:
             return {'status': 'ERROR', 'message': 'Session Not Found'}
 
+        logging.warning("sendfile logging: session {} send file {} from {} to {} with data\n {}".format(sessionid, filename, username_from, username_to,file_data))
         s_fr = self.get_user(username_from)
         s_to = self.get_user(username_to)
         if s_to == False or s_fr == False:
             return {'status': 'ERROR', 'message': 'User Tidak Ditemukan'}
-
         try:
             s_to['files'][username_from][filename] = file_data
         except KeyError:
@@ -207,7 +206,6 @@ class Chat:
         except KeyError:
             s_fr['files'][username_to] = {}
             s_fr['files'][username_to][filename] = file_data
-
         return {'status': 'OK', 'message': 'Message Sent'}
 
     def get_inbox(self, username):
@@ -238,6 +236,8 @@ class Chat:
             return {'status': 'ERROR', 'message': 'Session Tidak Ditemukan'}
         s_usr = self.get_user(username)
         files = s_usr['files']
+        logging.warning("inbox file logging: session {} of {}".format(sessionid, username))
+
         msgs = {}
         for user in files:
             msgs[user] = []
@@ -260,9 +260,9 @@ class Chat:
 if __name__ == "__main__":
     j = Chat()
     sesi = j.proses("auth messi surabaya")
-    # print(sesi)
-    # sesi = j.autentikasi_user('messi','surabaya')
-    # print sesi
+    print(sesi)
+    sesi = j.autentikasi_user('messi','surabaya')
+    print(sesi)
     tokenid = sesi['tokenid']
     print('inbox messi')
     print(j.get_inbox('messi'))
@@ -273,10 +273,17 @@ if __name__ == "__main__":
     print('sending to group')
     print(j.proses("group_send {} group1 messi hello gimana kabarnya mess ".format(tokenid)))
     print(j.proses("group_send {} group1 henderson baik kabarku mess ".format(tokenid)))
+    print('sending file to henderson')
+    print(j.proses("file_send {} henderson tester.txt TESTING file mess \r\n\r\n".format(tokenid)))
+    print('check files in henderson')
+    print(j.proses('file_check {}'.format(tokenid)))
+    print(j.get_inbox_file(tokenid, 'henderson'))
+    print('download files in henderson')
+    print(j.proses('file_download {} henderson tester.txt'.format(tokenid)))
 
-    # print j.send_message(tokenid,'messi','henderson','hello son')
-    # print j.send_message(tokenid,'henderson','messi','hello si')
-    # print j.send_message(tokenid,'lineker','messi','hello si dari lineker')
+    # print (j.send_message(tokenid,'messi','henderson','hello son')
+    # print (j.send_message(tokenid,'henderson','messi','hello si')
+    # print (j.send_message(tokenid,'lineker','messi','hello si dari lineker')
 
 
     print("isi mailbox dari messi ke group")
