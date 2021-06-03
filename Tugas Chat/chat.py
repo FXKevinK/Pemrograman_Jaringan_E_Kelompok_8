@@ -10,6 +10,7 @@ class Chat:
     def __init__(self):
         self.sessions = {}
         # {
+        #   'name':
         # 	"member":["username1,username2,username3"]
         # 	"message":[
         # 	{
@@ -81,7 +82,7 @@ class Chat:
             elif (command == 'inbox'):
                 sessionid = j[1].strip()
                 username = self.sessions[sessionid]['username']
-                logging.warning("INBOX: {}".format(sessionid))
+                logging.warning("INBOX:To user {}".format(sessionid))
                 return self.get_inbox(username)
 
             elif (command == 'group_inbox'):
@@ -94,7 +95,7 @@ class Chat:
             elif (command == 'file_check'):
                 sessionid = j[1].strip()
                 username = self.sessions[sessionid]['username']
-                logging.warning("INBOX: {}".format(sessionid))
+                logging.warning("INBOX:File {}".format(sessionid))
                 return self.get_inbox_file(sessionid, username)
 
             elif (command == 'file_download'):
@@ -191,7 +192,6 @@ class Chat:
         if sessionid not in self.sessions:
             return {'status': 'ERROR', 'message': 'Session Not Found'}
 
-        logging.warning("sendfile logging: session {} send file {} from {} to {} with data\n {}".format(sessionid, filename, username_from, username_to,file_data))
         s_fr = self.get_user(username_from)
         s_to = self.get_user(username_to)
         if s_to == False or s_fr == False:
@@ -236,8 +236,6 @@ class Chat:
             return {'status': 'ERROR', 'message': 'Session Tidak Ditemukan'}
         s_usr = self.get_user(username)
         files = s_usr['files']
-        logging.warning("inbox file logging: session {} of {}".format(sessionid, username))
-
         msgs = {}
         for user in files:
             msgs[user] = []
