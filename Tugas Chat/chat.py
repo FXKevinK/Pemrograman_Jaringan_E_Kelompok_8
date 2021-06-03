@@ -264,11 +264,15 @@ if __name__ == "__main__":
     # sesi = j.autentikasi_user('messi','surabaya')
     # print sesi
     tokenid = sesi['tokenid']
-    # print(j.get_inbox('messi'))
-    # print(j.proses("send {} henderson hello gimana kabarnya son ".format(tokenid)))
-    # print(j.proses("send {} messi hello gimana kabarnya mess ".format(tokenid)))
+    print('inbox messi')
+    print(j.get_inbox('messi'))
+    print('send to messi and henderson')
+    print(j.proses("send {} henderson hello gimana kabarnya son ".format(tokenid)))
+    print(j.proses("send {} henderson mau tanya dikit dong henderson ".format(tokenid)))
+    print(j.proses("send {} messi hello gimana kabarnya mess ".format(tokenid)))
     print('sending to group')
     print(j.proses("group_send {} group1 messi hello gimana kabarnya mess ".format(tokenid)))
+    print(j.proses("group_send {} group1 henderson baik kabarku mess ".format(tokenid)))
 
     # print j.send_message(tokenid,'messi','henderson','hello son')
     # print j.send_message(tokenid,'henderson','messi','hello si')
@@ -277,5 +281,5 @@ if __name__ == "__main__":
 
     print("isi mailbox dari messi ke group")
     print(j.get_inbox_group('group1','messi'))
-    # print("isi mailbox dari henderson")
-    # print(j.get_inbox('henderson'))
+    print("isi mailbox dari henderson")
+    print(j.get_inbox('henderson'))
