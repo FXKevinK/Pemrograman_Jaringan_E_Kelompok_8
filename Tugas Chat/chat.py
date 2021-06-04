@@ -28,13 +28,35 @@ class Chat:
         self.users['messi'] = {'nama': 'Lionel Messi',
                                'negara': 'Argentina',
                                'password': 'surabaya',
-                               'incoming': {},
+                               'incoming': {
+                                   'messi': Queue(),
+                                   'henderson': Queue() ,
+                                   'lineker': Queue()
+                               },
                                'outgoing': {},
                                'files': {}}
-        self.users['henderson'] = {'nama': 'Jordan Henderson', 'negara': 'Inggris', 'password': 'surabaya',
-                                   'incoming': {}, 'outgoing': {}, 'files': {}}
-        self.users['lineker'] = {'nama': 'Gary Lineker', 'negara': 'Inggris', 'password': 'surabaya', 'incoming': {},
+        self.users['henderson'] = {'nama': 'Jordan Henderson', 
+                                    'negara': 'Inggris',
+                                    'password': 'surabaya',
+                                    'incoming': { 'messi': Queue(), 
+                                    'henderson': Queue(),
+                                    'lineker': Queue()}, 
+                                    'outgoing': {}, 
+                                    'files': {}}
+        self.users['lineker'] = {'nama': 'Gary Lineker', 'negara': 'Inggris', 'password': 'surabaya', 'incoming': { 'messi': Queue() ,'henderson': Queue() ,
+                                   'lineker': Queue()},
                                  'outgoing': {}, 'files': {}}
+        # self.users['messi'] = {'nama': 'Lionel Messi',
+        #                        'negara': 'Argentina',
+        #                        'password': 'surabaya',
+        #                        'incoming': {},
+        #                        'outgoing': {},
+        #                        'files': {}}
+        # self.users['henderson'] = {'nama': 'Jordan Henderson', 'negara': 'Inggris', 'password': 'surabaya',
+        #                            'incoming': {}, 'outgoing': {}, 'files': {}}
+        # self.users['lineker'] = {'nama': 'Gary Lineker', 'negara': 'Inggris', 'password': 'surabaya', 'incoming': {},
+        #                          'outgoing': {}, 'files': {}}
+
         self.groups['group1'] = {'nama': 'Group 1', 'member': ['messi', 'henderson', 'lineker'] , 'message': {}}
 
     def proses(self, data):
@@ -216,7 +238,7 @@ class Chat:
             msgs[users] = []
             while not incoming[users].empty():
                 msgs[users].append(s_fr['incoming'][users].get_nowait())
-
+        # incoming.clear()
         return {'status': 'OK', 'messages': msgs}
 
     def get_inbox_group(self, groupid, username):
