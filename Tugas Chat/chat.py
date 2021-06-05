@@ -57,15 +57,10 @@ class Chat:
         # self.users['lineker'] = {'nama': 'Gary Lineker', 'negara': 'Inggris', 'password': 'surabaya', 'incoming': {},
         #                          'outgoing': {}, 'files': {}}
 
-        self.groups['group1'] = {
-            'nama': 'Group 1', 
-            'member': ['messi', 'henderson', 'lineker'] , 
-            'message': {
-            'messi': Queue(), 
-            'henderson': Queue(),
-            'lineker': Queue()}, 
-        }
-    
+        self.groups['group1'] = {'nama': 'Group 1',
+                                 'member': ['messi', 'henderson', 'lineker'],
+                                 'message': [
+                                 ]}
         
         print(self.groups)
 
@@ -212,13 +207,13 @@ class Chat:
 
         message_in = {'msg_from': s_fr['nama'],
                       'msg': message}
-        try:
-            inqueue_receiver[usernamefrom].put(message_in)
-        except KeyError:
-            inqueue_receiver[usernamefrom] = Queue()
-            inqueue_receiver[usernamefrom].put(message_in)
-
-        return {'status': 'OK', 'message': 'Message Sent To Group'}
+        # try:
+        inqueue_receiver.clear()
+        inqueue_receiver.append(message_in)
+        # except KeyError:
+        #     inqueue_receiver = []
+        #     inqueue_receiver.append(message_in)
+        return {'status': 'OK', 'message': 'Message Sent'}
 
     def send_file(self, sessionid, username_from, username_to, filename, file_data):
         if sessionid not in self.sessions:
@@ -256,11 +251,11 @@ class Chat:
         s_gr = self.get_group(groupid)
         incoming = s_gr['message']
         msgs = {}
-        for users in incoming:
-            msgs[users] = []
-            while not incoming[users].empty():
-                msgs[users].append(s_gr['message'][users].get_nowait())
-
+        # for users in incoming:
+        #     msgs[users] = []
+        #     while not incoming[users].empty():
+        #         msgs[users].append(s_gr['message'][users].get_nowait())
+        msgs = incoming
         return {'status': 'OK', 'message': msgs}
 
     def get_inbox_file(self, sessionid, username):

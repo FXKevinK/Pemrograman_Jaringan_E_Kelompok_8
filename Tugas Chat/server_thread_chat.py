@@ -36,7 +36,7 @@ class ProcessTheClient(threading.Thread):
 					self.connection.sendall(hasil.encode())
 					rcv=""
 			else:
-				break
+				continue
 		self.connection.close()
 
 class Server(threading.Thread):

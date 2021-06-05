@@ -13,6 +13,8 @@ import time
 TARGET_IP = "127.0.0.1"
 TARGET_PORT = 8889
 
+last_msg = ''
+last_sender = ''
 # GUI class for the chat
 class GUI:
 	# constructor method
@@ -154,13 +156,15 @@ class GUI:
 			return "username {} logged in, token {} " .format(username,self.tokenid)
 		else:
 			return "Error, {}" . format(result['message'])
-
+	
 	def group_inbox(self, groupid="group1"):
 		while True:
+			time.sleep(1)
 			if (self.tokenid == ""):
 				return "Error, not authorized"
 			string = "group_inbox {} {}\r\n".format(self.tokenid, groupid)
 			result = self.sendstring(string)
+			# print (result)
 			if result['status'] == 'OK':
 				time.sleep(0.2)
 				#insert messages to text box
@@ -168,66 +172,59 @@ class GUI:
 				io = StringIO()
 				msg = json.dump(result['message'],io)
 				iomsg = str(io.getvalue())
-				print(iomsg)
+				# print(iomsg)
 
-				if (iomsg == '''{"messi": [], "henderson": [], "lineker": []}'''):
+				if (iomsg == '''[]'''):
 					# print('msh kosong')
 					continue
-				# print ("ada isi")
 				
 				io2 = StringIO()
-				messi_msg = json.dump(result['message']['messi'],io2)
-				messi_iomsg = str(io2.getvalue())
+				from_msg = json.dump(result['message'][0]['msg_from'],io2)
+				from_iomsg = str(io2.getvalue())
+				from_iomsg = from_iomsg[1:-1]
+				print(from_iomsg)
 
-				io5 = StringIO()
-				henderson_msg = json.dump(result['message']['henderson'],io5)
-				henderson_iomsg = str(io5.getvalue())
-
-				io6 = StringIO()
-				lineker_msg = json.dump(result['message']['lineker'],io6)
-				lineker_iomsg = str(io6.getvalue())
+				io3 = StringIO()
+				body_msg = json.dump(result['message'][0]['msg'],io3)
+				body_iomsg = str(io3.getvalue())
+				body_iomsg = body_iomsg[2:-5]
+				print(body_iomsg)
 
 				final_msg = ''
-				user_name = ''
+				final_msg = from_iomsg + ': ' + body_iomsg + '\n\n'
 
-				if (messi_iomsg != '[]'):
-					user_name = 'messi'
-				if (henderson_iomsg != '[]'):
-					user_name= 'henderson'
-				if (lineker_iomsg != '[]'):
-					user_name = 'lineker'
-				
-				print(user_name)
-				#MSG
-				io3 = StringIO()
-				user_msg = json.dump(result['message'][user_name][0]['msg'],io3)
-				user_iomsg = str(io3.getvalue())
-				user_iomsg = user_iomsg[2:-5]
+				global last_msg
+				global last_sender
+				# If mesagae already printed
+				if (last_msg == final_msg and last_sender == from_iomsg):
+					continue
+				else:
+					
+					self.textCons.insert(END, final_msg)
+					self.textCons.config(state = DISABLED)
+					self.textCons.see(END)
 
-				#From
-				io4 = StringIO()
-				from_msg = json.dump(result['message'][user_name][0]['msg_from'],io4)
-				from_iomsg = str(io4.getvalue())
-				from_iomsg = from_iomsg[1:-1]
+				last_msg = final_msg
+				last_sender = from_iomsg
 
-				final_msg = from_iomsg + ': ' + user_iomsg + '\n\n'
+			# 	final_msg = from_iomsg + ': ' + user_iomsg + '\n\n'
 
-				print(final_msg)
+			# 	print(final_msg)
 			
-				# print ("This is result")
-				# print (result)
-				# print ("This is msg: ")
-				# print (messi_msg)
-				# print ("iomsg: ")
-				# print (messi_iomsg)
+			# 	# print ("This is result")
+			# 	# print (result)
+			# 	# print ("This is msg: ")
+			# 	# print (messi_msg)
+			# 	# print ("iomsg: ")
+			# 	# print (messi_iomsg)
 				
-				self.textCons.insert(END, final_msg)
-				self.textCons.config(state = DISABLED)
-				self.textCons.see(END)
+			# 	self.textCons.insert(END, final_msg)
+			# 	self.textCons.config(state = DISABLED)
+			# 	self.textCons.see(END)
 
-			else:
-				print("tidak oke")
-				# return "Error, {}".format(result['message'])
+			# else:
+			# 	print("tidak oke")
+			# 	# return "Error, {}".format(result['message'])
 
 	def goSendMessage(self,usernameto="xxx",message="xxx"):
 			if (self.tokenid==""):
@@ -247,6 +244,8 @@ class GUI:
 		print(string)
 		print(string)
 		result = self.sendstring(string)
+		print("ini result: ")
+		print (result)
 		if result['status'] == 'OK':
 			return "message sent to {}".format(groupto)
 		else:
