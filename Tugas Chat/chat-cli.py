@@ -42,7 +42,8 @@ class ChatClient:
             elif (command == 'file_inbox'):
                 return self.inboxfile()
             elif (command == 'group_inbox'):
-                return self.group_inbox()
+                groupid = j[1].strip()
+                return self.group_inbox(groupid)
             elif (command == 'download'):
                 username = j[1].strip()
                 filename = j[2].strip()
@@ -123,13 +124,16 @@ class ChatClient:
         else:
             return "Error, {}" . format(result['message'])
 
-    def group_inbox(self,groupid="xxx"):
+    def group_inbox(self,groupid):
         if (self.tokenid==""):
             return "Error, not authorized"
         string="group_inbox {} {}\r\n" . format(self.tokenid,groupid)
         result = self.sendstring(string)
         if result['status']=='OK':
-            return "{}" . format(json.dumps(result['messages']))
+            try:
+                return "{}" . format(json.dumps(result['message']))
+            except KeyError:
+                return ''
         else:
             return "Error, {}" . format(result['message'])
 

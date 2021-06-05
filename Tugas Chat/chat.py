@@ -57,7 +57,17 @@ class Chat:
         # self.users['lineker'] = {'nama': 'Gary Lineker', 'negara': 'Inggris', 'password': 'surabaya', 'incoming': {},
         #                          'outgoing': {}, 'files': {}}
 
-        self.groups['group1'] = {'nama': 'Group 1', 'member': ['messi', 'henderson', 'lineker'] , 'message': {}}
+        self.groups['group1'] = {
+            'nama': 'Group 1', 
+            'member': ['messi', 'henderson', 'lineker'] , 
+            'message': {
+            'messi': Queue(), 
+            'henderson': Queue(),
+            'lineker': Queue()}, 
+        }
+    
+        
+        print(self.groups)
 
     def proses(self, data):
         print(f'data = {data}')
@@ -90,7 +100,7 @@ class Chat:
                 logging.warning("SEND: Group {} send message from {} with message".format(groupto, usernamefrom, message))
                 return self.send_group(sessionid, groupto, usernamefrom, message)
 
-            elif (command == 'file_send'):
+            elif (command == 'send_file'):
                 sessionid = j[1].strip()
                 usernameto = j[2].strip()
                 filename = j[3].strip()
