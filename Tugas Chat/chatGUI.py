@@ -87,7 +87,7 @@ class GUI:
 		# create a Continue Button
 		# along with action
 		self.go = Button(self.login,
-						text = "CONTINUE",
+						text = "Personal Chat",
 						font = "Helvetica 14 bold",
 						command = lambda: self.goAhead(self.entryName.get(),self.entryPassword.get()))
 		
@@ -95,12 +95,21 @@ class GUI:
 					rely = 0.65)
 
 		self.go2 = Button(self.login,
-						text = "GROUP CHAT",
+						text = "Group Chat",
 						font = "Helvetica 14 bold",
 						command = lambda: self.goAhead2(self.entryName.get(),self.entryPassword.get()))
 		
 		self.go2.place(relx = 0.4,
 					rely = 0.85)
+
+		self.go3 = Button(self.login,
+						text = "Files",
+						font = "Helvetica 14 bold",
+						command = lambda: self.goAhead3(self.entryName.get(),self.entryPassword.get()))
+		
+		self.go3.place(relx = 0.1,
+					rely = 0.85)
+
 		self.Window.mainloop()
 
 	def goAhead(self, name, password):
@@ -130,6 +139,13 @@ class GUI:
 		# rcv.start()
 		rcv2 = threading.Thread(target=self.group_inbox)
 		rcv2.start()
+	
+	def goAhead3(self, name, password):
+		self.login.destroy()
+		self.goLogin(name, password)
+		self.layout3(name)
+		rcv3 = threading.Thread(target=self.file_inbox)
+		rcv3.start()
 
 
 	def sendstring(self,string):
@@ -156,6 +172,33 @@ class GUI:
 			return "username {} logged in, token {} " .format(username,self.tokenid)
 		else:
 			return "Error, {}" . format(result['message'])
+	
+	def file_inbox(self):
+		while True:
+			time.sleep(0.2)
+			if (self.tokenid == ""):
+				return "Error, not authorized"
+			string = "file_check {} \r\n".format(self.tokenid)
+			result = self.sendstring(string)	
+			print (result)
+			print (result['messages'])
+			if result['status'] == 'OK':
+				if str(result['messages']) == '''{}''':
+					print("Empty File Inbox")
+				else:
+					sender = str(self.filefrom.get())		
+					try:
+						senderExist =  result['messages'][sender]
+						fileList = ['']
+						print(fileList)
+						for i in senderExist:
+							fileList.append(i)
+						self.fileListing['values'] = fileList
+
+						
+					except:
+						self.fileListing['values'] = ['']
+						print("No files from selected user")
 	
 	def group_inbox(self, groupid="group1"):
 		while True:
@@ -434,6 +477,8 @@ class GUI:
 		self.textCons.config(state = DISABLED)
 
 
+
+
 # The main layout of the chat
 	def layout2(self,name):
 		
@@ -541,7 +586,135 @@ class GUI:
 		scrollbar.config(command = self.textCons.yview)
 		
 		self.textCons.config(state = DISABLED)
+	
+	# Files Layout
+	def layout3(self,name):
+		
+		self.name = name
+		# to show chat window
+		self.Window.deiconify()
+		self.Window.title("CHATROOM")
+		self.Window.resizable(width = False,
+							height = False)
+		self.Window.configure(width = 470,
+							height = 550,
+							bg = "#17202A")
+		self.labelHead = Label(self.Window,
+							bg = "#17202A",
+							fg = "#EAECEE",
+							text = "Files Transfer of " + self.name,
+							font = "Helvetica 13 bold",
+							pady = 5)
+		
+		self.labelHead.place(relwidth = 1)
+		self.line = Label(self.Window,
+						width = 450,
+						bg = "#ABB2B9")
+		
+		self.line.place(relwidth = 1,
+						rely = 0.07,
+						relheight = 0.012)
+		
+		
+		
+		self.labelBottom = Label(self.Window,
+								bg = "#ABB2B9",
+								height = 80)
+		
+		self.labelBottom.place(relwidth = 1,
+							rely = 0.825)
+		
+		self.labelDownload = Label(self.Window,
+								bg = "#ABB2B9")
 
+		self.labelDownload.place(relx = 0.4,
+							rely = 0.54)
+		
+		self.filefrom = ttk.Combobox(values=['messi','henderson','lineker'])
+		self.filefrom.place (relx=0.2,
+								rely=0.3,
+								anchor='center')
+
+		self.fileListing = ttk.Combobox()
+		self.fileListing.place (relx=0.8,
+								rely=0.3,
+								anchor='center')
+		
+				# create a Refresh Button (Optional)
+		self.buttonDownload = Button(
+								text = "Download",
+								font = "Helvetica 10 bold",
+								width = 20,
+								bg = "#ABB2B9",
+								command = lambda : self.downloadButton(self.filefrom.get(),self.fileListing.get()))
+		
+		self.buttonDownload.place(relx = 0.5,
+							rely = 0.5,
+							relheight = 0.03,
+							relwidth = 0.22)
+		
+		#TO xxx BOX
+		self.entryTo = Entry(self.labelBottom,
+							bg = "#2C3E50",
+							fg = "#EAECEE",
+							font = "Helvetica 13")
+		
+		# place the given widget
+		# into the gui window
+		self.entryTo.place(relwidth = 0.34,
+							relheight = 0.03,
+							rely = 0.008,
+							relx = 0.3)
+		
+		self.entryTo.focus()
+
+		
+		self.entryMsg = Entry(self.labelBottom,
+							bg = "#2C3E50",
+							fg = "#EAECEE",
+							font = "Helvetica 13")
+		
+		# place the given widget
+		# into the gui window
+		self.entryMsg.place(relwidth = 0.64,
+							relheight = 0.03,
+							rely = 0.04,
+							relx = 0.011
+							)
+		
+		# self.entryMsg.focus()
+
+		
+		
+		# create a Send Button
+		self.buttonMsg = Button(self.labelBottom,
+								text = "Send",
+								font = "Helvetica 10 bold",
+								width = 20,
+								bg = "#ABB2B9",
+								command = lambda : self.sendButton3(self.entryTo.get(), self.entryMsg.get()))
+		
+		self.buttonMsg.place(relx = 0.77,
+							rely = 0.008,
+							relheight = 0.03,
+							relwidth = 0.22)
+		# 	# create a Refresh Button (Optional)
+		# self.buttonRefresh = Button(self.labelBottom,
+		# 						text = "Refresh",
+		# 						font = "Helvetica 10 bold",
+		# 						width = 20,
+		# 						bg = "#ABB2B9",
+		# 						command = lambda : self.refreshButton())
+		
+		# self.buttonRefresh.place(relx = 0.77,
+		# 					rely = 0.043,
+		# 					relheight = 0.03,
+		# 					relwidth = 0.22)
+		
+		
+		# self.textCons.config(cursor = "arrow")
+		
+		# self.textCons.config(state = DISABLED)
 
 	# function to basically start the thread for sending messages
 	def sendButton(self, to, msg):
@@ -561,6 +734,28 @@ class GUI:
 		#send to server stuff
 		self.goSendMessage(usernameto=to,message=msg)
 	
+	def refreshButton(self):
+		self.file_inbox()
+	
+	def downloadButton(self, to, msg):
+		downloadStatus = self.downloadfile(to,msg)
+		print (downloadStatus)
+		downloadStatus = downloadStatus[1:-1]
+		self.labelDownload['text'] = downloadStatus
+
+	def downloadfile(self, username, filename):
+		if (self.tokenid == ""):
+			return "Error, not authorized"
+		string = "file_download {} {} {} \r\n".format(self.tokenid, username, filename)
+		result = self.sendstring(string)
+		if result['status'] == 'OK':
+			output_file = open(result['filename'], 'wb')
+			output_file.write(base64.b64decode(result['data']))
+			output_file.close()
+			return "{}".format(json.dumps(result['messages']))
+		else:
+			return "Error, {}".format(result['message'])
+	
 		# function to basically start the thread for sending messages
 	def sendButton2(self, to, msg):
 		# self.textCons.config(state = DISABLED)
@@ -578,6 +773,29 @@ class GUI:
 
 		#send to server stuff
 		self.sendgroupmessage(to,msg)
+	
+	def sendButton3(self, to, msg):
+		print(msg)
+		print (to)
+
+		#send to server stuff
+		self.sendfile(to,msg)
+	
+	def sendfile(self, usernameto, filename):
+		if (self.tokenid == ""):
+			return "Error, not authorized"
+		try:
+			file = open(filename, "rb")
+		except FileNotFoundError:
+			return "Error, {} file not found".format(filename)
+		buffer = file.read()
+		buffer_string = base64.b64encode(buffer).decode('utf-8')
+		message = "send_file {} {} {} {} \r\n".format(self.tokenid, usernameto, filename, buffer_string)
+		result = self.sendstring(message)
+		if result['status'] == 'OK':
+			return "file {} sent to {}".format(filename, usernameto)
+		else:
+			return "Error, {}".format(result['message'])
 
 		
 
