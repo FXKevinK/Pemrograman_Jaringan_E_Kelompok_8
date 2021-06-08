@@ -57,7 +57,14 @@ class Chat:
         # self.users['lineker'] = {'nama': 'Gary Lineker', 'negara': 'Inggris', 'password': 'surabaya', 'incoming': {},
         #                          'outgoing': {}, 'files': {}}
 
-        self.groups['group1'] = {'nama': 'Group 1', 'member': ['messi', 'henderson', 'lineker'] , 'message': {}}
+        self.groups['group1'] = {'nama': 'Group 1',
+                                 'member': ['messi', 'henderson', 'lineker'],
+                                 'message': [
+                                     {
+                                         'msg_from': 'messi',
+                                         'message': 'testing data'
+                                     }
+                                 ]}
 
     def proses(self, data):
         print(f'data = {data}')
@@ -203,10 +210,11 @@ class Chat:
         message_in = {'msg_from': s_fr['nama'],
                       'msg': message}
         try:
-            inqueue_receiver[usernamefrom].put(message_in)
+            inqueue_receiver.clear()
+            inqueue_receiver.append(message_in)
         except KeyError:
-            inqueue_receiver[usernamefrom] = Queue()
-            inqueue_receiver[usernamefrom].put(message_in)
+            inqueue_receiver = []
+            inqueue_receiver.append(message_in)
 
         return {'status': 'OK', 'message': 'Message Sent To Group'}
 
@@ -246,10 +254,12 @@ class Chat:
         s_gr = self.get_group(groupid)
         incoming = s_gr['message']
         msgs = {}
-        for users in incoming:
-            msgs[users] = []
-            while not incoming[users].empty():
-                msgs[users].append(s_gr['message'][users].get_nowait())
+        # for users in incoming:
+        #     msgs[users] = []
+        #     while not incoming[users].empty():
+        #         msgs[users].append(s_gr['message'][users].get_nowait())
+        msgs = incoming
+
 
         return {'status': 'OK', 'message': msgs}
 
@@ -290,6 +300,7 @@ if __name__ == "__main__":
     print(j.proses("send {} henderson hello gimana kabarnya son ".format(tokenid)))
     print(j.proses("send {} henderson mau tanya dikit dong henderson ".format(tokenid)))
     print(j.proses("send {} messi hello gimana kabarnya mess ".format(tokenid)))
+
     print('sending to group')
     print(j.proses("group_send {} group1 messi hello gimana kabarnya mess ".format(tokenid)))
     print(j.proses("group_send {} group1 henderson baik kabarku mess ".format(tokenid)))
@@ -297,6 +308,14 @@ if __name__ == "__main__":
     print(j.proses("file_send {} henderson tester.txt TESTING file mess \r\n\r\n".format(tokenid)))
     print('check files in henderson')
     print(j.proses('file_check {}'.format(tokenid)))
+    test = j.proses('file_check {}'.format(tokenid))
+    print(test)
+    test2 = test['messages']
+    for i in test2:
+        print(i)
+    test3 = test2['henderson']
+    print(test3)
+
     print(j.get_inbox_file(tokenid, 'henderson'))
     print('download files in henderson')
     print(j.proses('file_download {} henderson tester.txt'.format(tokenid)))
@@ -305,8 +324,23 @@ if __name__ == "__main__":
     # print (j.send_message(tokenid,'henderson','messi','hello si')
     # print (j.send_message(tokenid,'lineker','messi','hello si dari lineker')
 
-
-    print("isi mailbox dari messi ke group")
+    #
+    # print("isi mailbox dari messi ke group")
     print(j.get_inbox_group('group1','messi'))
-    print("isi mailbox dari henderson")
+    print(j.get_inbox_group('group1','messi'))
+    print(j.get_inbox_group('group1','messi'))
+    print(j.get_inbox_group('group1','messi'))
+    print(j.get_inbox_group('group1','messi'))
+    print(j.get_inbox_group('group1','messi'))
+    print(j.get_inbox_group('group1','messi'))
+    print(j.get_inbox_group('group1','messi'))
+    print(j.get_inbox_group('group1','messi'))
+    print(j.get_inbox_group('group1','messi'))
+    print(j.get_inbox_group('group1','messi'))
+    print(j.get_inbox_group('group1','messi'))
+    print(j.get_inbox_group('group1','messi'))
+    print(j.get_inbox_group('group1','messi'))
+    # print("isi mailbox dari henderson")
+    print(j.get_inbox('henderson'))
+    print(j.get_inbox('henderson'))
     print(j.get_inbox('henderson'))
