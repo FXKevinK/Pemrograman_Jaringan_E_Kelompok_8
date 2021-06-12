@@ -37,7 +37,7 @@ class ProcessTheClient(threading.Thread):
 					rcv=""
 			else:
 				continue
-		# self.connection.close()
+		#self.connection.close()
 
 class Server(threading.Thread):
 	def __init__(self):
