@@ -145,8 +145,8 @@ class GUI:
 
 		# # the thread to receive messages
 		rcv = threading.Thread(target=self.inbox)
-		rcv.start()
 		# rcv2 = threading.Thread(target=self.group_inbox)
+		rcv.start()
 		# rcv2.start()
 		# self.group_inbox()
 	
@@ -900,6 +900,111 @@ class GUI:
 			message = (f"{self.name}: {self.msg}")
 			client.send(message.encode(FORMAT))	
 			break	
+
+	# YANG BARU
+	# def fileLayout(self, name):
+
+	# 	self.name = name
+	# 	# to show chat window
+	# 	self.Window.deiconify()
+	# 	self.Window.title("FILES")
+	# 	self.Window.resizable(width=False,
+	# 						  height=False)
+	# 	self.Window.configure(width=470,
+	# 						  height=550,
+	# 						  bg="#17202A")
+	# 	self.labelHead = Label(self.Window,
+	# 						   bg="#17202A",
+	# 						   fg="#EAECEE",
+	# 						   text="Welcome " + self.name + "!",
+	# 						   font="Robotica 13 bold",
+	# 						   pady=5)
+
+	# 	self.labelHead.place(relwidth=1)
+	# 	self.line = Label(self.Window,
+	# 					  width=450,
+	# 					  bg="#4352E6") #ABB2B9
+
+	# 	self.line.place(relwidth=1,
+	# 					rely=0.07,
+	# 					relheight=0.012)
+
+	# 	self.textCons = Text(self.Window,
+	# 						 width=20,
+	# 						 height=2,
+	# 						 bg="#E7E9D5", #17202A
+	# 						 fg="#17202A", #EAECEE
+	# 						 font="Roboto 14",
+	# 						 padx=5,
+	# 						 pady=5)
+
+	# 	self.textCons.place(relheight=0.745,
+	# 						relwidth=1,
+	# 						rely=0.08)
+
+	# 	self.labelBottom = Label(self.Window,
+	# 							 bg="#4352E6", #ABB2B9
+	# 							 height=80)
+
+	# 	self.labelBottom.place(relwidth=1,
+	# 						   rely=0.825)
+
+	# 	self.nameList =  ttk.Combobox(self.Window,
+	# 							height=5,
+	# 							textvariable='n'
+	# 							)
+	# 	nameList = self.inboxfile()
+	# 	for i in nameList['messages']:
+	# 		self.fileList.insert(END,i)
+
+	# 	self.fileList = ttk.Combobox(self.Window,
+	# 							height=5,
+	# 							textvariable='n'
+	# 							)
+
+	# 	for i in nameList['messages'][self.nameList.get()]:
+	# 		self.fileList.insert(END,)
+
+
+
+	# 	# self.entryMsg.focus()
+
+	# 	# create a Send Button
+	# 	self.buttonMsg = Button(self.labelBottom,
+	# 							text="Send",
+	# 							font="Futura 15 bold",
+	# 							width=20,
+	# 							bg="#FBE207", #ABB2B9
+	# 							command=lambda: self.sendButton(self.entryTo.get(), self.entryMsg.get()))
+
+	# 	self.buttonMsg.place(relx=0.84, #0.77
+	# 						 rely=0.008,
+	# 						 relheight=0.06,
+	# 						 relwidth=0.12) #0.22
+
+	# 	self.textCons.config(cursor="arrow")
+
+	# 	self.textCons.config(state=DISABLED)
+
+	# def inboxfile(self):
+	# 	if (self.tokenid == ""):
+	# 		return "Error, not authorized"
+	# 	string = "file_check {} \r\n".format(self.tokenid)
+	# 	result = self.sendstring(string)
+	# 	if result['status'] == 'OK':
+	# 		return "{}".format(json.dumps(result['messages']))
+	# 	else:
+	# 		return "Error, {}".format(result['message'])
+
+	# def group_inbox(self, groupid="group1"):
+	# 	if (self.tokenid == ""):
+	# 		return "Error, not authorized"
+	# 	string = "group_inbox {} {}\r\n".format(self.tokenid, groupid)
+	# 	result = self.sendstring(string)
+	# 	if result['status'] == 'OK':
+	# 		return "{}".format(json.dumps(result['message']))
+	# 	else:
+	# 		return "Error, {}".format(result['message'])
 
 # create a GUI class object
 g = GUI()

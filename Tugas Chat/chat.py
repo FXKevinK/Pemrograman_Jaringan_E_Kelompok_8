@@ -60,6 +60,10 @@ class Chat:
         self.groups['group1'] = {'nama': 'Group 1',
                                  'member': ['messi', 'henderson', 'lineker'],
                                  'message': [
+                                    #  {
+                                    #      'msg_from': 'messi',
+                                    #      'message': 'testing data'
+                                    #  }
                                  ]}
         
         print(self.groups)
@@ -178,9 +182,13 @@ class Chat:
             outqueue_sender[username_from].put(message)
         try:
             inqueue_receiver[username_from].put(message)
+            # inqueue_receiver.clear()
+            # inqueue_receiver.append(message_in)
         except KeyError:
             inqueue_receiver[username_from] = Queue()
             inqueue_receiver[username_from].put(message)
+            # inqueue_receiver = []
+            # inqueue_receiver.append(message_in)
         return {'status': 'OK', 'message': 'Message Sent'}
 
     def send_group(self, sessionid, groupid, usernamefrom, message):
@@ -302,6 +310,15 @@ if __name__ == "__main__":
     print(j.proses("file_send {} henderson tester.txt TESTING file mess \r\n\r\n".format(tokenid)))
     print('check files in henderson')
     print(j.proses('file_check {}'.format(tokenid)))
+
+    # test = j.proses('file_check {}'.format(tokenid))
+    # print(test)
+    # test2 = test['messages']
+    # for i in test2:
+    #     print(i)
+    # test3 = test2['henderson']
+    # print(test3)
+
     print(j.get_inbox_file(tokenid, 'henderson'))
     print('download files in henderson')
     print(j.proses('file_download {} henderson tester.txt'.format(tokenid)))
