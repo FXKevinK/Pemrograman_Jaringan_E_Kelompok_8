@@ -42,7 +42,7 @@ class GUI:
 					text = "Progjar E: Eric, Feinard, Kevin", bg="#E7E9D5",
 					justify = CENTER,
 					font = "Roboto 8")
-		
+
 		self.nama.place(relheight = 0.15,
 					relx = 0.25,
 					rely = 0.01)
@@ -273,17 +273,7 @@ class GUI:
 
 				last_msg = final_msg
 				last_sender = from_iomsg
-	
 
-	# def group_inbox(self, groupid="group1"):
-	# 	if (self.tokenid == ""):
-	# 		return "Error, not authorized"
-	# 	string = "group_inbox {} {}\r\n".format(self.tokenid, groupid)
-	# 	result = self.sendstring(string)
-	# 	if result['status'] == 'OK':
-	# 		return "{}".format(json.dumps(result['message']))
-	# 	else:
-	# 		return "Error, {}".format(result['message'])
 			# 	final_msg = from_iomsg + ': ' + user_iomsg + '\n\n'
 
 			# 	print(final_msg)
@@ -796,91 +786,6 @@ class GUI:
 		
 		# self.textCons.config(state = DISABLED)
 
-	def fileLayout(self, name):
-
-		self.name = name
-		# to show chat window
-		self.Window.deiconify()
-		self.Window.title("FILES")
-		self.Window.resizable(width=False,
-							  height=False)
-		self.Window.configure(width=470,
-							  height=550,
-							  bg="#17202A")
-		self.labelHead = Label(self.Window,
-							   bg="#17202A",
-							   fg="#EAECEE",
-							   text="welcome " + self.name + "!",
-							   font="Helvetica 13 bold",
-							   pady=5)
-
-		self.labelHead.place(relwidth=1)
-		self.line = Label(self.Window,
-						  width=450,
-						  bg="#ABB2B9")
-
-		self.line.place(relwidth=1,
-						rely=0.07,
-						relheight=0.012)
-
-		self.textCons = Text(self.Window,
-							 width=20,
-							 height=2,
-							 bg="#17202A",
-							 fg="#EAECEE",
-							 font="Helvetica 14",
-							 padx=5,
-							 pady=5)
-
-		self.textCons.place(relheight=0.745,
-							relwidth=1,
-							rely=0.08)
-
-		self.labelBottom = Label(self.Window,
-								 bg="#ABB2B9",
-								 height=80)
-
-		self.labelBottom.place(relwidth=1,
-							   rely=0.825)
-
-		self.nameList =  ttk.Combobox(self.Window,
-								height=5,
-								textvariable='n'
-								)
-		nameList = self.inboxfile()
-		for i in nameList['messages']:
-			self.fileList.insert(END,i)
-
-		self.fileList = ttk.Combobox(self.Window,
-								height=5,
-								textvariable='n'
-								)
-
-		for i in nameList['messages'][self.nameList.get()]:
-			self.fileList.insert(END,)
-
-
-
-		# self.entryMsg.focus()
-
-		# create a Send Button
-		self.buttonMsg = Button(self.labelBottom,
-								text="Send",
-								font="Helvetica 10 bold",
-								width=20,
-								bg="#ABB2B9",
-								command=lambda: self.sendButton(self.entryTo.get(), self.entryMsg.get()))
-
-		self.buttonMsg.place(relx=0.77,
-							 rely=0.008,
-							 relheight=0.06,
-							 relwidth=0.22)
-
-		self.textCons.config(cursor="arrow")
-
-		self.textCons.config(state=DISABLED)
-
-
 	# function to basically start the thread for sending messages
 	def sendButton(self, to, msg):
 		# self.textCons.config(state = DISABLED)
@@ -898,8 +803,6 @@ class GUI:
 
 		#send to server stuff
 		self.goSendMessage(usernameto=to,message=msg)
-		# YANG BARU
-		# self.download(username,filename)
 	
 	def refreshButton(self):
 		self.file_inbox()
@@ -909,16 +812,6 @@ class GUI:
 		print (downloadStatus)
 		downloadStatus = downloadStatus[1:-1]
 		self.labelDownload['text'] = downloadStatus
-
-	def inboxfile(self):
-		if (self.tokenid == ""):
-			return "Error, not authorized"
-		string = "file_check {} \r\n".format(self.tokenid)
-		result = self.sendstring(string)
-		if result['status'] == 'OK':
-			return "{}".format(json.dumps(result['messages']))
-		else:
-			return "Error, {}".format(result['message'])
 
 	def downloadfile(self, username, filename):
 		if (self.tokenid == ""):
