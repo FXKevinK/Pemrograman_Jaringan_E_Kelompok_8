@@ -146,8 +146,8 @@ class GUI:
 		# # the thread to receive messages
 		rcv = threading.Thread(target=self.inbox)
 		rcv.start()
-		rcv2 = threading.Thread(target=self.group_inbox)
-		rcv2.start()
+		# rcv2 = threading.Thread(target=self.group_inbox)
+		# rcv2.start()
 		# self.group_inbox()
 	
 
@@ -897,9 +897,9 @@ class GUI:
 		self.textCons.see(END)
 
 		#send to server stuff
-		# self.goSendMessage(usernameto=to,message=msg)
+		self.goSendMessage(usernameto=to,message=msg)
 		# YANG BARU
-		self.download(username,filename)
+		# self.download(username,filename)
 	
 	def refreshButton(self):
 		self.file_inbox()
