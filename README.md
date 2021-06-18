@@ -33,13 +33,13 @@ python chatGUI.py
 
 Sehingga jika menjalankan command `python chatGUI.py` sebanyak 3 kali, maka akan memunculkan 3 GUI untuk tiap user yang telah terdaftar
 
-![Img](https://github.com/)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/guipolos.png)
 
 ## Personal Chat
 
 1. Setelah membuka 2 GUI, masukkan *username* dan *password* ke dalam *entry box* masing-masing GUI dan tekan *button* `Personal Chat`.
 
-![Img](https://github.com/)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/gui2.png)
 
 
 2. Maka akan muncul tampilan untuk memasukkan *message* yang diperlukan. 
@@ -48,13 +48,13 @@ Sehingga jika menjalankan command `python chatGUI.py` sebanyak 3 kali, maka akan
 
     Lakukan hal yang sama pada GUI lain dan tekan tombol *Send*. Maka hasil chat akan muncul pada *chat box*, seperti gambar di bawah.
 
-![Img](https://github.com/)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/guipc.png)
 
 ## Group Chat
 
 1. Lakukan dengan membuka 2 atau 3 GUI, masukkan *username* dan *password* ke dalam *entry box* masing-masing GUI dan tekan *button* `Group Chat`.
 
-![Img](https://github.com/)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/allgui.png)
 
 2. Maka akan muncul tampilan untuk memasukkan *message* yang diperlukan. 
 * Pada *entry box* pertama masukkan nama grup yang akan dikirimkan pesan (group1) 
@@ -62,36 +62,34 @@ Sehingga jika menjalankan command `python chatGUI.py` sebanyak 3 kali, maka akan
 
     Lakukan hal yang sama pada GUI lain dan tekan tombol *Send*. Maka hasil chat akan muncul pada *chat box*, seperti gambar di bawah.
 
-![Img](https://github.com/)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/guigc.png)
 
 
 ## Files
 
 1. Lakukan dengan membuka 2 atau 3 GUI. Bukalah GUI pada folder yang berbeda untuk dapat membuktikan pengiriman file, dalam hal ini folder yang digunakan yaitu `Tugas Chat` dan `temp`, seperti pada gambar berikut.
 
-![Img](https://github.com/)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/tugaschatt.png)
 
-![Img](https://github.com/)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/tempp.png)
 
 Anggap Folder `Tugas Chat` ber-*username* messi dan `Temp` ber-*username* lineker. Masukkan *username* dan *password* ke dalam *entry box* masing-masing GUI dan tekan *button* `Files`.
 
-![Img](https://github.com/)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/gui2.png)
 
 2. Pilih file yang akan dikirimkan ke *user* lain contoh filenya adalah `test1.txt` yang berisikan `hello world`.
 
-![Img](https://github.com/)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/heloword1.png)
 
 3. Masukkan di entry box dengan dengan cara:
 * Pada *entry box* pertama masukkan nama tujuan yang akan dikirimkan *file*
 * Pada *entry box* kedua masukkan pesan yang akan dikirim. 
 
-![Img](https://github.com/)
+    Setelah itu pada GUI lain, pilih sumber pengirim pada *dropdown* kiri dan nama file yang dikirimkan pada *dropdown* kanan. Apabila ditemukan, klik *download*.
 
-4. Setelah itu pada GUI lain, pilih sumber pengirim pada *dropdown* kiri dan nama file yang dikirimkan pada *dropdown* kanan. Apabila ditemukan, klik *download*.
-
-![Img](https://github.com/)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/gui2.png)
 
 5. Hasilnya adalah sebagai berikut
 
-![Img](https://github.com/)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/heloword2.png)
 
