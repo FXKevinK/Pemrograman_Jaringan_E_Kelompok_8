@@ -9,7 +9,7 @@
 * [Konfigurasi Awal](#konfigurasi-awal)
 * [Personal Chat](#personal-chat)
 * [Group Chat](#group-chat)
-* [Files](#files-message)
+* [File Message](#file-message)
 
 ## Cara Menjalankan GUI - Tugas Chat
 
@@ -21,17 +21,17 @@
 git clone https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8.git
 ```
 
-2. Arahkan ke direktori hasil *clone* lalu jalankan command berikut
+2. Arahkan ke direktori hasil *clone* lalu jalankan *command* berikut
 
 ```python
 python server_thread_chat.py
 ```
-Dan buka Command Prompt lain utnuk mengaktifkan GUI
+Lalu buka *Command Prompt* lain untuk mengaktifkan GUI
 ```
 python chatGUI.py
 ```
 
-Sehingga jika menjalankan command `python chatGUI.py` sebanyak 3 kali, maka akan memunculkan 3 GUI untuk tiap user yang telah terdaftar
+Sehingga jika menjalankan *command* `python chatGUI.py` sebanyak 3 kali, maka akan memunculkan 3 GUI untuk tiap user yang telah terdaftar
 
 ![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/guipolos.png)
 
@@ -65,7 +65,7 @@ Sehingga jika menjalankan command `python chatGUI.py` sebanyak 3 kali, maka akan
 ![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/guigc.png)
 
 
-## Files Message
+## File Message
 
 1. Lakukan dengan membuka 2 atau 3 GUI. Bukalah GUI pada folder yang berbeda untuk dapat membuktikan pengiriman file, dalam hal ini folder yang digunakan yaitu `Tugas Chat` dan `temp`, seperti pada gambar berikut.
 
