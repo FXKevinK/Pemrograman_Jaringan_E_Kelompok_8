@@ -9,7 +9,7 @@
 * [Konfigurasi Awal](#konfigurasi-awal)
 * [Personal Chat](#personal-chat)
 * [Group Chat](#group-chat)
-* [Files](#files)
+* [Files](#files-message)
 
 ## Cara Menjalankan GUI - Tugas Chat
 
@@ -65,7 +65,7 @@ Sehingga jika menjalankan command `python chatGUI.py` sebanyak 3 kali, maka akan
 ![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/guigc.png)
 
 
-## Files
+## Files Message
 
 1. Lakukan dengan membuka 2 atau 3 GUI. Bukalah GUI pada folder yang berbeda untuk dapat membuktikan pengiriman file, dalam hal ini folder yang digunakan yaitu `Tugas Chat` dan `temp`, seperti pada gambar berikut.
 
