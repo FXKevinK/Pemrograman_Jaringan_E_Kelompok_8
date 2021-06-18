@@ -21,7 +21,7 @@
 git clone https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8.git
 ```
 
-2. Arahkan ke direktori hasil clone lalu jalankan command berikut
+2. Arahkan ke direktori hasil *clone* lalu jalankan command berikut
 
 ```python
 python server_thread_chat.py
@@ -31,7 +31,7 @@ Dan buka Command Prompt lain utnuk mengaktifkan GUI
 python chatGUI.py
 ```
 
-Sehingga jika menjelankan command `python chatGUI.py` sebanyak 3 kali, maka akan memunculkan 3 GUI untuk tiap user yang telah terdaftar
+Sehingga jika menjalankan command `python chatGUI.py` sebanyak 3 kali, maka akan memunculkan 3 GUI untuk tiap user yang telah terdaftar
 
 ![Img](https://github.com/)
 
@@ -73,11 +73,11 @@ Sehingga jika menjelankan command `python chatGUI.py` sebanyak 3 kali, maka akan
 
 ![Img](https://github.com/)
 
-Masukkan *username* dan *password* ke dalam *entry box* masing-masing GUI dan tekan *button* `Files`.
+Anggap Folder `Tugas Chat` ber-*username* messi dan `Temp` ber-*username* lineker. Masukkan *username* dan *password* ke dalam *entry box* masing-masing GUI dan tekan *button* `Files`.
 
 ![Img](https://github.com/)
 
-2. Pilih file yang akan dikirimkan ke *user* lain contoh filenya adalah `test.txt` yang berisikan `hello world`.
+2. Pilih file yang akan dikirimkan ke *user* lain contoh filenya adalah `test1.txt` yang berisikan `hello world`.
 
 ![Img](https://github.com/)
 
@@ -87,7 +87,7 @@ Masukkan *username* dan *password* ke dalam *entry box* masing-masing GUI dan te
 
 ![Img](https://github.com/)
 
-4. Setelah itu pada GUI lain, pilih sumber pengirim pada *dropdown* kiri dan nama file yang dikirimkan pada *dropdown* kanan. Apbaila ditemukan, klik *download*.
+4. Setelah itu pada GUI lain, pilih sumber pengirim pada *dropdown* kiri dan nama file yang dikirimkan pada *dropdown* kanan. Apabila ditemukan, klik *download*.
 
 ![Img](https://github.com/)
 
