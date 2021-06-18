@@ -75,7 +75,7 @@ Sehingga jika menjalankan command `python chatGUI.py` sebanyak 3 kali, maka akan
 
 Anggap Folder `Tugas Chat` ber-*username* messi dan `Temp` ber-*username* lineker. Masukkan *username* dan *password* ke dalam *entry box* masing-masing GUI dan tekan *button* `Files`.
 
-![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/guifile.png)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/gui2.png)
 
 2. Pilih file yang akan dikirimkan ke *user* lain contoh filenya adalah `test1.txt` yang berisikan `hello world`.
 
@@ -87,7 +87,7 @@ Anggap Folder `Tugas Chat` ber-*username* messi dan `Temp` ber-*username* lineke
 
     Setelah itu pada GUI lain, pilih sumber pengirim pada *dropdown* kiri dan nama file yang dikirimkan pada *dropdown* kanan. Apabila ditemukan, klik *download*.
 
-![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/gui2.png)
+![Img](https://github.com/FXKevinK/Pemrograman_Jaringan_E_Kelompok_8/blob/Tugas_Chat/img/guifile.png)
 
 5. Hasilnya adalah sebagai berikut
 
