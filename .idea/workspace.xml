@@ -6,9 +6,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/progjar6_LoadBalancer/http.py" beforeDir="false" afterPath="$PROJECT_DIR$/progjar6_LoadBalancer/http.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progjar6_LoadBalancer/lb.py" beforeDir="false" afterPath="$PROJECT_DIR$/progjar6_LoadBalancer/lb.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progjar6_LoadBalancer/lbthread.py" beforeDir="false" afterPath="$PROJECT_DIR$/progjar6_LoadBalancer/lbthread.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progjar6_LoadBalancer/server_thread.py" beforeDir="false" afterPath="$PROJECT_DIR$/progjar6_LoadBalancer/server_thread.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,8 +52,8 @@
       <recent name="C:\Users\ASUS\source\repos\Pemrograman_Jaringan_E_Kelompok_8\FP" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.lbthread">
-    <configuration name="lbthread" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.lb">
+    <configuration name="async_server 2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Pemrograman_Jaringan_E_Kelompok_8" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -69,7 +66,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/progjar6_LoadBalancer/lbthread.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/progjar6_LoadBalancer/async_server 2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -78,7 +75,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="server_thread 2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="async_server 3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Pemrograman_Jaringan_E_Kelompok_8" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -91,7 +88,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/progjar6_LoadBalancer/server_thread 2.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/progjar6_LoadBalancer/async_server 3.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -100,7 +97,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="server_thread 3" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="async_server 4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Pemrograman_Jaringan_E_Kelompok_8" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -113,7 +110,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/progjar6_LoadBalancer/server_thread 3.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/progjar6_LoadBalancer/async_server 4.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -122,7 +119,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="server_thread 4" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="async_server 5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Pemrograman_Jaringan_E_Kelompok_8" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -135,7 +132,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/progjar6_LoadBalancer/server_thread 4.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/progjar6_LoadBalancer/async_server 5.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -144,7 +141,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="server_thread 5" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="lb" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Pemrograman_Jaringan_E_Kelompok_8" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -157,7 +154,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/progjar6_LoadBalancer/server_thread 5.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/progjar6_LoadBalancer/lb.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -168,11 +165,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.lbthread" />
-        <item itemvalue="Python.server_thread 5" />
-        <item itemvalue="Python.server_thread 4" />
-        <item itemvalue="Python.server_thread 3" />
-        <item itemvalue="Python.server_thread 2" />
+        <item itemvalue="Python.lb" />
+        <item itemvalue="Python.async_server 5" />
+        <item itemvalue="Python.async_server 4" />
+        <item itemvalue="Python.async_server 3" />
+        <item itemvalue="Python.async_server 2" />
       </list>
     </recent_temporary>
   </component>
@@ -192,6 +189,7 @@
       <workItem from="1626440624671" duration="184000" />
       <workItem from="1626441492990" duration="737000" />
       <workItem from="1626444001094" duration="1451000" />
+      <workItem from="1626447420165" duration="1033000" />
     </task>
     <servers />
   </component>
@@ -215,15 +213,15 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$http.coverage" NAME="http Coverage Results" MODIFIED="1626427612644" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FP" />
-    <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$async_server_4.coverage" NAME="async_server 4 Coverage Results" MODIFIED="1626441521711" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
+    <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$async_server_4.coverage" NAME="async_server 4 Coverage Results" MODIFIED="1626447482018" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$server_async_http.coverage" NAME="server_async_http Coverage Results" MODIFIED="1626434571387" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Reverse Proxy/FP" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$test.coverage" NAME="test Coverage Results" MODIFIED="1626429122766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FP" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$socket_proxy.coverage" NAME="socket_proxy Coverage Results" MODIFIED="1626431925910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FP" />
-    <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$lb.coverage" NAME="lb Coverage Results" MODIFIED="1626441511111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
+    <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$lb.coverage" NAME="lb Coverage Results" MODIFIED="1626447486572" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$server_async_http_pdf.coverage" NAME="server_async_http_pdf Coverage Results" MODIFIED="1626434452621" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FP" />
-    <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$async_server_3.coverage" NAME="async_server 3 Coverage Results" MODIFIED="1626441519388" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
+    <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$async_server_3.coverage" NAME="async_server 3 Coverage Results" MODIFIED="1626447480042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$server_thread_3.coverage" NAME="server_thread 3 Coverage Results" MODIFIED="1626444026223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
-    <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$async_server_5.coverage" NAME="async_server 5 Coverage Results" MODIFIED="1626441523846" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
+    <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$async_server_5.coverage" NAME="async_server 5 Coverage Results" MODIFIED="1626447483969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$server_async_http_images__1_.coverage" NAME="server_async_http_images (1) Coverage Results" MODIFIED="1626434569422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Reverse Proxy/FP" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$server_thread_http.coverage" NAME="server_thread_http Coverage Results" MODIFIED="1626432197659" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FP" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$server_thread_http_secure.coverage" NAME="server_thread_http_secure Coverage Results" MODIFIED="1626422978404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FP" />
@@ -233,11 +231,11 @@
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$server_async_http_images.coverage" NAME="server_async_http_images Coverage Results" MODIFIED="1626434325915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FP" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$socket_proxy__1_.coverage" NAME="socket_proxy (1) Coverage Results" MODIFIED="1626434566269" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Reverse Proxy/FP" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$server_thread_http_pdf__1_.coverage" NAME="server_thread_http_pdf (1) Coverage Results" MODIFIED="1626431922808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FP" />
-    <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$async_server_2.coverage" NAME="async_server 2 Coverage Results" MODIFIED="1626441517369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
+    <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$async_server_2.coverage" NAME="async_server 2 Coverage Results" MODIFIED="1626447477869" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$server_thread_http_images.coverage" NAME="server_thread_http_images Coverage Results" MODIFIED="1626431924352" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/FP" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$server_async_http_pdf__1_.coverage" NAME="server_async_http_pdf (1) Coverage Results" MODIFIED="1626434567703" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Reverse Proxy/FP" />
-    <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$async_server.coverage" NAME="async_server Coverage Results" MODIFIED="1626441515028" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$server_thread_5.coverage" NAME="server_thread 5 Coverage Results" MODIFIED="1626444220624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
+    <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$async_server.coverage" NAME="async_server Coverage Results" MODIFIED="1626447436594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$Unnamed.coverage" NAME="Unnamed Coverage Results" MODIFIED="1626422329204" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
     <SUITE FILE_PATH="coverage/Pemrograman_Jaringan_E_Kelompok_8$server_thread_2.coverage" NAME="server_thread 2 Coverage Results" MODIFIED="1626444024455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/progjar6_LoadBalancer" />
   </component>
