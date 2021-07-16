@@ -71,32 +71,32 @@ class HttpServer:
 
 
     def http_get(self, object_address, headers):
-        files = glob('../**', recursive=True)
-        files = [i.replace('\\','/') for i in files]
+        files = glob('./*', recursive=True)
         command = object_address.split('/')
         thedir = "../"
-        if (command[1] == ''):
+        if (object_address == ''):
             return self.response(200, 'OK', 'Ini Adalah web Server percobaan', dict())
         if (command[1] == 'video'):
             return self.response(302, 'Found', '', dict(location='https://youtu.be/katoxpnTf04'))
         if (command[1] == 'santai'):
             return self.response(200, 'OK', 'santai saja', dict())
 
-        object_address = object_address[1:]
-        filepath = thedir + object_address
+        # files = [i.replace('\\','/') for i in files]
+        # object_address = object_address[1:]
+        # filepath = thedir + object_address
+        #
+        # if filepath not in files:
+        #     return self.response(404, 'Not Found', '', {})
+        #
+        # fp = open(thedir + object_address, 'rb')
+        # isi = fp.read()
+        # fext = os.path.splitext(thedir + object_address)[1]
+        # content_type = self.types[fext]
+        #
+        # headers = {}
+        # headers['Content-type'] = content_type
 
-        if filepath not in files:
-            return self.response(404, 'Not Found', '', {})
-
-        fp = open(thedir + object_address, 'rb')
-        isi = fp.read()
-        fext = os.path.splitext(thedir + object_address)[1]
-        content_type = self.types[fext]
-
-        headers = {}
-        headers['Content-type'] = content_type
-
-        return self.response(200, 'OK', isi, headers)
+        # return self.response(200, 'OK', isi, headers)
 
     def http_post(self, object_address, headers):
         headers = {}
