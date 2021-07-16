@@ -25,7 +25,6 @@ class ProcessTheClient(asyncore.dispatcher_with_send):
 				logging.warning("balas ke  client: {}".format(hasil))
 				self.send(hasil) #hasil sudah dalam bentuk bytes, kirimkan balik ke client
 				rcv = ""
-				self.close()
 
 		#self.send('HTTP/1.1 200 OK \r\n\r\n'.encode())
 			#self.send("{}" . format(httpserver.proses(d)))
