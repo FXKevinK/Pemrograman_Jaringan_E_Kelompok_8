@@ -3,11 +3,11 @@ import socket
 import threading
 import time
 import sys
-import json
 import logging
-from chat import Chat
+from http import HttpServer
 
-chatserver = Chat()
+httpserver = HttpServer()
+
 
 class ProcessTheClient(threading.Thread):
 	def __init__(self, connection, address):
@@ -18,26 +18,32 @@ class ProcessTheClient(threading.Thread):
 	def run(self):
 		rcv=""
 		while True:
-			data = self.connection.recv(32)
-			print(data.decode())
-			if data:
-				d = data.decode()
-				print(f"before rcv {rcv}")
-				rcv=rcv+d
-				print(f"after rcv {rcv}")
-				if rcv[-2:]=='\r\n':
-					#end of command, proses string
-					logging.warning("data dari client: {}" . format(rcv))
-					hasil = json.dumps(chatserver.proses(rcv))
-					print(f"hasil awal = {hasil}")
-					hasil=hasil+"\r\n\r\n"
-					print(f"hasil akhir = {hasil}")
-					logging.warning("balas ke  client: {}" . format(hasil))
-					self.connection.sendall(hasil.encode())
-					rcv=""
-			else:
-				continue
+			try:
+				data = self.connection.recv(32)
+				if data:
+					#merubah input dari socket (berupa bytes) ke dalam string
+					#agar bisa mendeteksi \r\n
+					d = data.decode()
+					rcv=rcv+d
+					if rcv[-2:]=='\r\n':
+						#end of command, proses string
+						logging.warning("data dari client: {}" . format(rcv))
+						hasil = httpserver.proses(rcv)
+						#hasil akan berupa bytes
+						#untuk bisa ditambahi dengan string, maka string harus di encode
+						hasil=hasil+"\r\n\r\n".encode()
+						logging.warning("balas ke  client: {}" . format(hasil))
+						#hasil sudah dalam bentuk bytes
+						self.connection.sendall(hasil)
+						rcv=""
+						self.connection.close()
+				else:
+					break
+			except OSError as e:
+				pass
 		self.connection.close()
+
+
 
 class Server(threading.Thread):
 	def __init__(self):
@@ -47,17 +53,17 @@ class Server(threading.Thread):
 		threading.Thread.__init__(self)
 
 	def run(self):
-		self.my_socket.bind(('0.0.0.0',8889))
+		self.my_socket.bind(('0.0.0.0', 8889))
 		self.my_socket.listen(1)
-		# self.my_socket.listen(100)
 		while True:
 			self.connection, self.client_address = self.my_socket.accept()
-			logging.warning("connection from {}" . format(self.client_address))
-			
+			logging.warning("connection from {}".format(self.client_address))
+
 			clt = ProcessTheClient(self.connection, self.client_address)
 			clt.start()
 			self.the_clients.append(clt)
-	
+
+
 
 def main():
 	svr = Server()
