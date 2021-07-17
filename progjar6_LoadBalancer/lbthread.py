@@ -8,11 +8,11 @@ import logging
 class BackendList:
     def __init__(self):
         self.servers=[]
-        self.servers.append(('127.0.0.1',9001))
-        self.servers.append(('127.0.0.1',9002))
-        self.servers.append(('127.0.0.1',9003))
-        self.servers.append(('127.0.0.1',9004))
-        self.servers.append(('127.0.0.1',9005))
+        self.servers.append(('127.0.0.1',9006))
+        self.servers.append(('127.0.0.1',9007))
+        self.servers.append(('127.0.0.1',9008))
+        self.servers.append(('127.0.0.1',9009))
+        # self.servers.append(('127.0.0.1',9010))
         self.current=0
     def getserver(self):
         s = self.servers[self.current]
@@ -58,13 +58,13 @@ class Server(threading.Thread):
         threading.Thread.__init__(self)
 
     def run(self):
-        self.my_socket.bind(('0.0.0.0', 44444))
+        self.my_socket.bind(('0.0.0.0', 2500))
         self.my_socket.listen(5)
         while True:
             try:
                 self.connection, self.client_address = self.my_socket.accept()
-                # logging.warning("connection from {}".format(self.client_address))
-
+                logging.warning("connection from {}".format(self.client_address))
+                # time.sleep(0.1)
                 clt = ProcessTheClient(self.connection, self.client_address ,self.bservers.getserver())
                 clt.start()
             except OSError as e:

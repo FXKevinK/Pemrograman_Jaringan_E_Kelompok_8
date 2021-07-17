@@ -65,6 +65,8 @@ class HttpServer:
         except IndexError:
             return self.response(400, 'Bad Request', '', {})
 
+
+
     def http_get(self, object_address, headers):
         files = glob('../**', recursive=True)
         files = [i.replace('\\','/') for i in files]
@@ -97,6 +99,8 @@ class HttpServer:
         headers = {}
         isi = "kosong"
         return self.response(200, 'OK', isi, headers)
+
+
 
 if __name__ == "__main__":
     httpserver = HttpServer()
