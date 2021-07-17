@@ -9,9 +9,9 @@ class BackendList:
     def __init__(self):
         self.servers=[]
         self.servers.append(('127.0.0.1',9006))
-        self.servers.append(('127.0.0.1',9007))
-        self.servers.append(('127.0.0.1',9008))
-        self.servers.append(('127.0.0.1',9009))
+        # self.servers.append(('127.0.0.1',9007))
+        # self.servers.append(('127.0.0.1',9008))
+        # self.servers.append(('127.0.0.1',9009))
         # self.servers.append(('127.0.0.1',9010))
         self.current=0
     def getserver(self):
